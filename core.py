@@ -8,7 +8,7 @@ from TagSelect import *
 
 
 def post_processing():
-    pth = os.getcwd()+"img_data"
+    pth = os.getcwd()+"\\img_data"
     touch(Template(pth + "\\confirm_cruit_botton.png", record_pos=(0.261, 0.173), resolution=(1600, 900)))
     sleep(2)
     touch(Template(pth + "\\start_recruit_button.png", record_pos=(-0.131, 0.014), resolution=(1600, 900)))
@@ -22,7 +22,7 @@ def post_processing():
 
 
 def auto_recruit(dev):
-    pth = os.getcwd()+"img_data"
+    pth = os.getcwd()
     while True:
         touch(Template(pth + "\\img_data\\+_button.png", record_pos=(-0.247, -0.054), resolution=(1600, 900)))
         sleep(0.5)
@@ -37,7 +37,7 @@ def auto_recruit(dev):
         elif tags_info[1] == 9:
             touch(tags_info[0])
             sleep(1)
-            touch(Template(pth + "\\change_recruit_time.png", record_pos=(-0.15, -0.051), resolution=(1600, 900)))
+            touch(Template(pth + "\\img_data\\change_recruit_time.png", record_pos=(-0.15, -0.051), resolution=(1600, 900)))
         post_processing()
         sleep(2)
         touch((100, 100))
