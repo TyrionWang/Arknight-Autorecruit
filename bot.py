@@ -10,21 +10,9 @@ class AndroidDevice(airtest.core.android.android.Android):
         self.dev = connect_device(device_type)
 
 
-def device_select(device_type):
-    if device_type == 'ios':
-        pass
-    else:
-        global current_device
-        current_device = AndroidDevice(device_type)
-
-
-def recruit():
-    global current_device
-    auto_recruit(current_device.dev)
-
-
 if __name__ == "__main__":
     global current_device
-    cbox = ['安卓', 'ios', 'UU模拟器', '蓝叠模拟器']
-    device_select(cbox[0])
-    recruit()
+    cbox = ['安卓', 'UU模拟器', '蓝叠模拟器']
+    device_type = cbox[0]
+    current_device = AndroidDevice(device_type)
+    auto_recruit(current_device.dev)
