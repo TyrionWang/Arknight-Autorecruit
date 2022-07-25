@@ -21,17 +21,21 @@ def post_processing():
     sleep(2)
 
 
-def auto_recruit(dev):
+def auto_recruit(dev, reader):
     pth = os.getcwd()
     while True:
         touch(Template(pth + "\\img_data\\+_button.png", record_pos=(-0.247, -0.054), resolution=(1600, 900)))
         sleep(0.5)
         dev.snapshot(filename=pth + "\\.tmp\\tags.jpg", quality=99)
-        tags_info = recommend_tags(pth + "\\.tmp\\tags.jpg")
-        if tags_info == 404:  # easyocr出错，重新识别
-            continue
-        if tags_info == 400:
+        tags_info = recommend_tags(pth + "\\.tmp\\tags.jpg", reader)
+        if tags_info == 400:  # 无特殊情况（指从Tag上看都是2、3星）
             pass
+        elif tags_info == 404:  # easyocr识别出错，重新识别
+            print("Tag检测错误，正在尝试重新检测")
+            continue
+        elif tags_info == 666:  # 测试过程中还没出现过。。。不保证好用
+            print("检测到6星Tag,自动中止脚本运行")
+            break
         elif tags_info[1] == 1:
             touch(tags_info[0])
         elif tags_info[1] == 9:

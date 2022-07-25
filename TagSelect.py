@@ -1,11 +1,7 @@
-import easyocr
-
-
-def recommend_tags(v):
+def recommend_tags(v, reader):
     all_tags = {'狙击干员', '术师干员', '先锋干员', '近卫干员', '重装干员', '医疗干员', '辅助干员', '特种干员', '近战位', '远程位',
                 '输出', '支援机械', '防护', '生存', '治疗', '费用回复', '群攻', '减速', '支援', '快速复活', '削弱', '位移', '召唤',
                 '控场', '爆发', '新手', '资深干员', '高级资深干员'}
-    reader = easyocr.Reader(['ch_sim'], gpu=False, download_enabled=False)
     result = reader.readtext(v)
     current_tags = set()
     tag_num = 0
