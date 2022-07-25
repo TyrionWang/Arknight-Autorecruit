@@ -8,8 +8,8 @@ from TagSelect import *
 
 
 def post_processing():
-    pth = os.getcwd()
-    touch(Template(pth + "\\tpl1645842865590.png", record_pos=(0.261, 0.173), resolution=(1600, 900)))
+    pth = os.getcwd()+"img_data"
+    touch(Template(pth + "\\confirm_cruit_botton.png", record_pos=(0.261, 0.173), resolution=(1600, 900)))
     sleep(2)
     touch(Template(pth + "\\tpl1645844243536.png", record_pos=(-0.131, 0.014), resolution=(1600, 900)))
     sleep(2)
@@ -22,7 +22,7 @@ def post_processing():
 
 
 def auto_recruit(dev):
-    pth = os.getcwd()
+    pth = os.getcwd()+"img_data"
     while True:
         touch(Template(pth + "\\tpl1645844831354.png", record_pos=(-0.247, -0.054), resolution=(1600, 900)))
         sleep(0.5)
